@@ -1,13 +1,13 @@
 import React from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-class Loading extends React.Component {
+const Loading = () => {
 
-    render() {
-        return (
-            <CircularProgress />
-        )
+    return (
+        <div>
+        <CircularProgress /><p className='username'>&nbsp;&nbsp;fetching data, please wait...</p>
+        </div>
+    )
     }
-}
 
 export default Loading

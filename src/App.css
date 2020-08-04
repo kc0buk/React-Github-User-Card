@@ -105,6 +105,17 @@ body {
   margin-bottom: 30px;
 }
 
+.followers {
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px -2px #000;
+  background-color: #FFF;
+  margin-bottom: 30px;
+}
+
 .card img {
   width: 150px;
   height: 150px;
