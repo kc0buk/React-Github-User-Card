@@ -24,7 +24,7 @@ Commit your code regularly and meaningfully. This helps both you and your team l
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request** (https://github.com/kc0buk/React-Github-User-Card/pull/1)
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete by merging the branch back into master.
 - [ ] Do your magic!
@@ -87,5 +87,5 @@ After finishing your required elements, you can push your work further. These go
 
 ## Submission Format
 
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
-* [ ] Fill out your module retrospective form [here](https://forms.lambdaschool.com/module-retrospective) with a link to your PR
+* [x] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+* [x] Fill out your module retrospective form [here](https://forms.lambdaschool.com/module-retrospective) with a link to your PR
