@@ -25,15 +25,15 @@ Commit your code regularly and meaningfully. This helps both you and your team l
 Follow these steps for completing your project.
 
 - [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request** (https://github.com/kc0buk/React-Github-User-Card/pull/1)
-- [ ] Add your team lead as a reviewer on the pull-request
+- [x] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete by merging the branch back into master.
-- [ ] Do your magic!
+- [x] Do your magic!
 
 ### Task 2a: Minimum Viable Product
 
-- [ ] Fetch data from the Github API for a Github user
-- [ ] Display the user data on the DOM
-- [ ] Use class components when you need to hold any state or use any lifecycle methods
+- [x] Fetch data from the Github API for a Github user
+- [x] Display the user data on the DOM
+- [x] Use class components when you need to hold any state or use any lifecycle methods
 
 #### Planning your App
 
@@ -45,26 +45,26 @@ When you have those completed, you're ready to start coding!
 
 #### Fetch the User Data
 
-- When your component mounts, send a GET request to the following URL (replacing the palceholder with your Github name):
+- [x] When your component mounts, send a GET request to the following URL (replacing the palceholder with your Github name):
   - https://api.github.com/users/<your name>
-- After you fetch your data, set it to state
+- [x] After you fetch your data, set it to state
 
 #### Display the User Data
 
-- Pass the data to the component that will be displaying it
-- Build out a user card using the data that the Github API returns to you
+- [x] Pass the data to the component that will be displaying it
+- [x] Build out a user card using the data that the Github API returns to you
   - You may reference your old project for this, or you may wish to build this from scratch yourself
 
 #### Fetch the User's Followers
 
-- When your component mounts, you will also fetch the user's followers using this endpoint:
+- [x] When your component mounts, you will also fetch the user's followers using this endpoint:
   https://api.github.com/users/< Your github name >/followers
-- Set that data to state as well, and display the data in your app
+- [x] Set that data to state as well, and display the data in your app
 
 #### Style the User Card
 
-- Now it's time to style up your app
-- You are free to choose how you style your app, but make it look as presentable as you can
+- [x] Now it's time to style up your app
+- [x] You are free to choose how you style your app, but make it look as presentable as you can
 - Try something new here. Maybe that's a new CSS technique you haven't really practiced yet. Maybe it's using a styling library you haven't tried. Push yourself to get better in this area.
 
 #### Project Retrospective

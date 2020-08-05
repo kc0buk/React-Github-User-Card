@@ -9,16 +9,17 @@ class App extends React.Component {
   
   constructor() {
     super()
-    const initialUser = 'kc0buk'
     this.state = {
-      username: initialUser,
+      username: 'kc0buk',
       data: [],
       loadingData: true,
       followers: [],
-      loadingFollowers: true
+      loadingFollowers: true,
+      searchValue: ''
     }
   }
 
+  /* Gets initial data for initial username and sets data to state. Sets loadingData to the opposite of current value to trigger render */
   async componentDidMount() {
     axios
       .get(`https://api.github.com/users/${this.state.username}`)
@@ -45,6 +46,7 @@ class App extends React.Component {
       })
   }
 
+  /* Handles input for search field and sets value into username state */
   handleChange = event => {
     const { value } = event.target
 
@@ -53,61 +55,42 @@ class App extends React.Component {
     })
   }
 
-componentDidUpdate(prevState) {
-  if (prevState.username !== this.state.username) {
-    axios
-        .get(`https://api.github.com/users/${this.state.username}`)
-        .then( res => {
-        console.log(res)
-        this.setState({
-          data: res.data,
-          loadingData: !this.state.loadingData,
-          username: this.state.username
-        })
-      })
+// async componentDidUpdate(prevState) {
+//   if (prevState.searchValue !== this.state.searchValue) {
+//     axios
+//         .get(`https://api.github.com/users/${this.state.username}`)
+//         .then( res => {
+//         console.log(res)
+//         this.setState({
+//           data: res.data,
+//           loadingData: !this.state.loadingData,
+//           searchValue: ''
+//         })
+//       })
 
-       axios
-        .get(`https://api.github.com/users/${this.state.username}/followers`)
-        .then( res => {
-          console.log(res)
-          this.setState({
-            followers: res.data,
-            loadingFollowers: !this.state.loadingFollowers
-          })
-        })
+//        await axios
+//         .get(`https://api.github.com/users/${this.state.username}/followers`)
+//         .then( res => {
+//           console.log(res)
+//           this.setState({
+//             followers: res.data,
+//             loadingFollowers: !this.state.loadingFollowers
+//           })
+//         })
 
-      .catch( err => {
-        console.log(`There was an error: ${err}`)
-      })
-  }
-}
+//       .catch( err => {
+//         console.log(`There was an error: ${err}`)
+//       })
+//   }
+// }
 
+  /* Submits search value from input and sets into state to trigger componentDidUpdate to fetch user data for new user */
   fetchData = event => {
     event.preventDefault()
     console.log(event)
-    // axios
-    //     .get(`https://api.github.com/users/${this.state.username}`)
-    //     .then( res => {
-    //     console.log(res)
-    //     this.setState({
-    //       data: res.data,
-    //       loadingData: !this.state.loadingData
-    //     })
-    //   })
-
-    //    axios
-    //     .get(`https://api.github.com/users/${this.state.username}/followers`)
-    //     .then( res => {
-    //       console.log(res)
-    //       this.setState({
-    //         followers: res.data,
-    //         loadingFollowers: !this.state.loadingFollowers
-    //       })
-    //     })
-
-    //   .catch( err => {
-    //     console.log(`There was an error: ${err}`)
-    //   })
+    this.setState({
+      searchValue: event.target.value
+    })
       }
     
     
@@ -118,17 +101,21 @@ render() {
   return (
     <div className="App container">
       <div className='cards'>
+      <form onSubmit={this.fetchData}>
       <input 
         type='text'
         value={this.state.username}
         onChange={this.handleChange}
         placeholder='Enter a GitHub username'
       />
-      <button onClick={this.fetchData}>Fetch Data</button>
+      <button>Fetch Data</button>
+      </form>
+      {/* Controls whether Loading component or Card component renders */}
         {
           this.state.loadingData ? <Loading /> : <Card data={this.state.data} />
         }
         
+        {/* Controls whether Loading or Followers card renders */}
         {
           this.state.loadingFollowers ? <Loading /> : <FollowerCards data={this.state.followers} username={this.state.data.login} followers={this.state.followers}       />
         }
