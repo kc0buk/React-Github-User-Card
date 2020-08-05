@@ -63,8 +63,8 @@ class App extends React.Component {
 //         console.log(res)
 //         this.setState({
 //           data: res.data,
-//           loadingData: !this.state.loadingData,
-//           searchValue: ''
+//           loadingData: !this.state.loadingData
+//          /* searchValue: '' */
 //         })
 //       })
 
@@ -89,7 +89,8 @@ class App extends React.Component {
     event.preventDefault()
     console.log(event)
     this.setState({
-      searchValue: event.target.value
+      searchValue: event.target.value,
+      searchValue: ''
     })
       }
     
