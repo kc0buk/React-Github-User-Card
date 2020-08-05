@@ -127,6 +127,11 @@ body {
   font-size: 3.4rem;
 }
 
+.card .followerHeader {
+  font-size: 3.4rem;
+  width: 100%;
+}
+
 .card p {
   font-size: 1.4rem;
   margin-bottom: 3px;
