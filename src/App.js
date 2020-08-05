@@ -55,34 +55,33 @@ class App extends React.Component {
     })
   }
 
-// async componentDidUpdate(prevState) {
-//   if (prevState.searchValue !== this.state.searchValue) {
-//     axios
-//         .get(`https://api.github.com/users/${this.state.username}`)
-//         .then( res => {
-//         console.log(res)
-//         this.setState({
-//           data: res.data,
-//           loadingData: !this.state.loadingData
-//          /* searchValue: '' */
-//         })
-//       })
+async componentDidUpdate(prevProps, prevState) {
+  if (prevState.searchValue !== this.state.searchValue) {
+    axios
+        .get(`https://api.github.com/users/${this.state.username}`)
+        .then( res => {
+        console.log(res)
+        this.setState({
+          data: res.data,
+          loadingData: false
+        })
+      })
 
-//        await axios
-//         .get(`https://api.github.com/users/${this.state.username}/followers`)
-//         .then( res => {
-//           console.log(res)
-//           this.setState({
-//             followers: res.data,
-//             loadingFollowers: !this.state.loadingFollowers
-//           })
-//         })
+       await axios
+        .get(`https://api.github.com/users/${this.state.username}/followers`)
+        .then( res => {
+          console.log(res)
+          this.setState({
+            followers: res.data,
+            loadingFollowers: false
+          })
+        })
 
-//       .catch( err => {
-//         console.log(`There was an error: ${err}`)
-//       })
-//   }
-// }
+      .catch( err => {
+        console.log(`There was an error: ${err}`)
+      })
+  }
+}
 
   /* Submits search value from input and sets into state to trigger componentDidUpdate to fetch user data for new user */
   fetchData = event => {
@@ -90,7 +89,8 @@ class App extends React.Component {
     console.log(event)
     this.setState({
       searchValue: event.target.value,
-      searchValue: ''
+      loadingData: true,
+      loadingFollowers: true
     })
       }
     
